@@ -1,7 +1,14 @@
+import { Toaster } from 'react-hot-toast';
+import { FavoritesProvider } from './context/FavoritesContext/FavoritesContext';
+import AppRouter from './router/AppRouter';
+
 function App() {
   return (
     <>
-      <div className='bg-primary'></div>
+      <FavoritesProvider>
+        <AppRouter />
+        <Toaster />
+      </FavoritesProvider>
     </>
   );
 }
