@@ -1,4 +1,4 @@
-import { GENDERS } from '../enums/enums';
+import { GENDERS } from '../../enums/enums';
 
 export interface ICharacter {
   id: number;

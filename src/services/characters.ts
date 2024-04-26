@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ICharacterParams } from '../interfaces/Character';
+import { ICharacterParams } from '../interfaces/api/Character';
 import { createParamsString } from '../utils/utils';
 
 const CHARACTERS_API_BASE_URL = 'https://theofficeapi.dev/api';
