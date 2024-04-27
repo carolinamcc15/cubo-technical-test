@@ -17,6 +17,8 @@ class CharactersService {
   async fetchOneCharacter(id: number) {
     const response = await axios.get(`${CHARACTERS_API_BASE_URL}/character/${id}`);
     console.log(response);
+
+    return response.data;
   }
 }
 

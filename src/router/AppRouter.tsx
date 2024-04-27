@@ -4,6 +4,7 @@ import { CharactersPage } from '../views/CharactersPage/CharactersPage';
 import MainLayout from '../components/layout/MainLayout/MainLayout';
 import { FavoritesPage } from '../views/FavoritesPage/FavoritesPage';
 import { ROUTES } from './routes';
+import { CharactersDetailsPage } from '../views/CharacterDetailPage/CharacterDetailPage';
 
 const AppRouter = () => {
   const routes = useRoutes([
@@ -17,7 +18,7 @@ const AppRouter = () => {
       element: <MainLayout />,
       children: [
         { path: ROUTES.CHARACTERS, element: <CharactersPage /> },
-        { path: ROUTES.CHARACTER_DETAIL, element: <h1>Details page</h1> },
+        { path: ROUTES.CHARACTER_DETAIL, element: <CharactersDetailsPage /> },
       ],
     },
     {

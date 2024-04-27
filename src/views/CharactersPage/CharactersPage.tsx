@@ -22,11 +22,11 @@ export const CharactersPage = () => {
   }
 
   return (
-    <main>
+    <main className='p-4 md:p-6 lg:p-10 max-w-[1400px] m-auto'>
       <h1 className='page-title'>All characters</h1>
       <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5'>
         {characters.map((character: ICharacter) => (
-          <CharacterCard character={character} />
+          <CharacterCard key={character.id} character={character} />
         ))}
       </ul>
     </main>
