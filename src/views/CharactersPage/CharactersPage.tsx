@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import { CharacterCard } from '../../components/cards/CharacterCard/CharacterCard';
 import CharactersService from '../../services/characters';
-import { ICharacter } from '../../interfaces/api/Character';
+import { ICharacter } from '../../interfaces/api/ICharacter';
 
 export const CharactersPage = () => {
   const charactersService = new CharactersService();

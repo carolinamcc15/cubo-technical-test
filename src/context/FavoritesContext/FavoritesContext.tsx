@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { ICharacter } from '../../interfaces/api/Character';
+import { ICharacter } from '../../interfaces/api/ICharacter';
 
 const FavoritesContext = createContext([]);
 

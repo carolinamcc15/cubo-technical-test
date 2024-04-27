@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { CharacterCard } from '../../components/cards/CharacterCard/CharacterCard';
 import { CharactersFilters } from '../../components/common/CharactersFilters/CharactersFilters';
 import { useFavoritesContext } from '../../context/FavoritesContext/FavoritesContext';
-import { ICharacter } from '../../interfaces/api/Character';
+import { ICharacter } from '../../interfaces/api/ICharacter';
 
 export const FavoritesPage = () => {
   const { favorites } = useFavoritesContext();
