@@ -4,6 +4,6 @@
 
 @layer components {
   .page-title {
-    @apply text-xl md:text-4xl text-secondary-dark font-bold mb-5 lg:mb-6 tracking-wide;
+    @apply text-xl md:text-4xl text-secondary-dark font-bold mt-4 mb-6 lg:mb-10 tracking-wide;
   }
 }

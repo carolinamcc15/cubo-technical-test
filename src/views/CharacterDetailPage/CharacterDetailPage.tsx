@@ -1,12 +1,13 @@
 import { BuildingLibraryIcon } from '@heroicons/react/24/outline';
-import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 import CharactersService from '../../services/characters';
 import usePageTitle from '../../hooks/usePageTitle/usePageTitle';
 import useGenderImage from '../../hooks/useGenderImage/useGenderImage';
 
 import animatedSquaresBg from '../../assets/svg/animated-squares-bg.svg';
+import { FavoriteButton } from '../../components/common/FavoriteButton/FavoriteButton';
 
 export const CharactersDetailsPage = () => {
   const charactersService = new CharactersService();
@@ -45,8 +46,13 @@ export const CharactersDetailsPage = () => {
             alt='Character gender representation'
           />
           <div className='flex flex-col '>
-            <h1 className='page-title mb-3'>{character.name}</h1>
+            <div className='flex gap-4 items-center'>
+            <h1 className='page-title mb-3'>{character.name} </h1>
+            <FavoriteButton character={character} />
+            </div>
+            
             <h2 className='text-xl mb-2 text-gray-600'>{character.actor}</h2>
+            
           </div>
         </div>
         <div className='grid auto-rows-[192px] grid-cols-3 gap-4'></div>
