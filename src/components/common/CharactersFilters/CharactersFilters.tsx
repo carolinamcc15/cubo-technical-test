@@ -10,7 +10,7 @@ export const CharactersFilters = ({ handleSelectOption, handleSearch }: PropType
   ];
 
   return (
-    <div className='flex gap-6 py-5'>
+    <div className='w-full flex flex-wrap justify-center gap-6 py-5 m-auto'>
       <SearchBar onSearch={handleSearch} placeholder='Search by name' />
       <Select
         placeholder='Filter by gender'

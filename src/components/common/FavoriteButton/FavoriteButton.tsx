@@ -34,7 +34,7 @@ export const FavoriteButton = ({ character }: PropTypes) => {
             <HeartIconFilled
               data-tooltip-id='favs-tooltip'
               data-tooltip-content='Remove favorite'
-              className='text-red-600 w-7 '
+              className='text-red-600 w-6 sm:w-7 '
             />
           </>
         ) : (
@@ -42,7 +42,7 @@ export const FavoriteButton = ({ character }: PropTypes) => {
             <HeartIcon
               data-tooltip-id='favs-tooltip'
               data-tooltip-content='Add to favorites'
-              className='text-gray-500 w-7 '
+              className='text-gray-500 w-6 sm:w-7 '
             />
           </>
         )}

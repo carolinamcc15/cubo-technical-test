@@ -1,12 +1,14 @@
-import { MagnifyingGlassIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import React, { useState } from 'react';
+
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 
 export const SearchBar = ({ onSearch, placeholder = 'Search' }: PropTypes) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const debounce = (func: any, delay: number) => {
+  const debounce = (func: unknown, delay: number) => {
     let timeoutId: number;
-    return (...args: any[]) => {
+    return (...args: unknown[]) => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         func(...args);
@@ -44,7 +46,7 @@ export const SearchBar = ({ onSearch, placeholder = 'Search' }: PropTypes) => {
           className='absolute inset-y-0 right-0 pr-3 flex items-center justify-center text-gray-400 hover:text-gray-600 focus:outline-none'
           onClick={handleResetSearch}
         >
-          <XCircleIcon className='h-5 w-5' />
+          <XMarkIcon className='h-5 w-5' />
         </button>
       )}
       <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
