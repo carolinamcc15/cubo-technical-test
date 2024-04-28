@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ICharacterParams } from '../interfaces/api/Character';
+import { ICharacterParams } from '../interfaces/api/ICharacter';
 import { createParamsString } from '../utils/utils';
 
 const CHARACTERS_API_BASE_URL = 'https://theofficeapi.dev/api';
@@ -11,7 +11,7 @@ class CharactersService {
 
     const response = await axios.get(`${CHARACTERS_API_BASE_URL}/characters${params}`);
     console.log(response);
-    return response.data.results;
+    return response.data;
   }
 
   async fetchOneCharacter(id: number) {

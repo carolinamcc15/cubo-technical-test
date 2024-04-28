@@ -4,6 +4,25 @@
 
 @layer components {
   .page-title {
-    @apply text-xl md:text-4xl text-secondary-dark font-bold mb-5 lg:mb-6 tracking-wide;
+    @apply text-xl md:text-4xl text-secondary-dark font-bold mt-4 mb-6 lg:mb-10 tracking-wide;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c0f0ec;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #543c7c;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3c677c;
 }

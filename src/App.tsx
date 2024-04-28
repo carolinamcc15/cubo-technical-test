@@ -7,7 +7,16 @@ function App() {
     <>
       <FavoritesProvider>
         <AppRouter />
-        <Toaster />
+        <Toaster
+          toastOptions={{
+            
+            style: {
+              borderRadius: '8px',
+              background: '#333333dc',
+              color: '#fff',
+            },
+          }}
+        />
       </FavoritesProvider>
     </>
   );

@@ -4,6 +4,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["'Inter'"],
+        title: ["'Raleway'"]
       },
       colors: {
         primary: {
