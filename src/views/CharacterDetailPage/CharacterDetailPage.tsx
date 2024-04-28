@@ -1,3 +1,6 @@
+import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import toast from 'react-hot-toast';
 import {
   BuildingLibraryIcon,
   BriefcaseIcon,
@@ -5,11 +8,10 @@ import {
   FilmIcon,
   HeartIcon,
 } from '@heroicons/react/24/outline';
-import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
 
 import { FavoriteButton } from '../../components/common/FavoriteButton/FavoriteButton';
 import { LoadingDetail } from '../../components/common/LoadingDetail/LoadingDetail';
+import ErrorMessage from '../../components/common/ErrorMessage/ErrorMessage';
 import useGenderImage from '../../hooks/useGenderImage/useGenderImage';
 import animatedBg from '../../assets/svg/animated-squares-dark.svg';
 import usePageTitle from '../../hooks/usePageTitle/usePageTitle';
@@ -34,7 +36,8 @@ export const CharactersDetailsPage = () => {
   }
 
   if (error) {
-    return <div>An error occurred: {error.message}</div>;
+    toast.error('ERROR: Could not load character details');
+    return <ErrorMessage />;
   }
 
   return (

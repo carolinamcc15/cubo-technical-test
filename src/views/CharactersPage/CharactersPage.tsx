@@ -3,9 +3,11 @@ import { useMemo, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import ReactPaginate from 'react-paginate';
 import { useQuery } from 'react-query';
+import toast from 'react-hot-toast';
 
 import { CharacterCard } from '../../components/cards/CharacterCard/CharacterCard';
 import { LoadingCards } from '../../components/common/LoadingCards/LoadingCards';
+import ErrorMessage from '../../components/common/ErrorMessage/ErrorMessage';
 import { PageHeader } from '../../components/layout/PageHeader/PageHeader';
 import { ICharacter } from '../../interfaces/api/ICharacter';
 import CharactersService from '../../services/characters';
@@ -42,7 +44,8 @@ export const CharactersPage = () => {
   };
 
   if (error) {
-    return <div>An error occurred: {error.message}</div>;
+    toast.error('ERROR: Could not load characters');
+    return <ErrorMessage />;
   }
 
   return (
