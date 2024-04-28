@@ -6,10 +6,14 @@ import { CharactersFilters } from '../../components/common/CharactersFilters/Cha
 import { useFavoritesContext } from '../../context/FavoritesContext/FavoritesContext';
 import { PageHeader } from '../../components/layout/PageHeader/PageHeader';
 import { ICharacter } from '../../interfaces/api/ICharacter';
+import { Button } from '../../components/buttons/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../router/routes';
 
 export const FavoritesPage = () => {
-  const { favorites } = useFavoritesContext();
+  const navigate = useNavigate();
 
+  const { favorites } = useFavoritesContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [genderValue, setGenderValue] = useState(null);
   const [filtered, setFiltered] = useState([]);
@@ -34,6 +38,10 @@ export const FavoritesPage = () => {
     }
   };
 
+  const redirectToCharacters = () => {
+    navigate(ROUTES.CHARACTERS);
+  };
+
   const resetFilters = () => {
     setSearchTerm('');
     setGenderValue(null);
@@ -52,11 +60,19 @@ export const FavoritesPage = () => {
           handleSelectOption={setGenderValue}
           resetFilters={resetFilters}
         />
-        <ul className='mx-auto min-w-min grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5 mt-5 justify-center'>
-          {listToDisplay.map((character: ICharacter) => (
-            <CharacterCard key={character.id} character={character} />
-          ))}
-        </ul>
+
+        {listToDisplay.length > 0 ? (
+          <ul className='mx-auto min-w-min grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5 mt-5 justify-center'>
+            {listToDisplay.map((character: ICharacter) => (
+              <CharacterCard key={character.id} character={character} />
+            ))}
+          </ul>
+        ) : (
+          <div className='flex flex-col justify-center items-center min-h-60 text-gray-300 gap-5'>
+            <h1 className='md:text-xl font-semibold '>{filtersActive ? 'There are no favorites to show': "You don't have any favorite yet"}</h1>
+            {!filtersActive && <Button text='EXPLORE CHARACTERS' onClickHandler={redirectToCharacters} />}
+          </div>
+        )}
       </main>
     </div>
   );

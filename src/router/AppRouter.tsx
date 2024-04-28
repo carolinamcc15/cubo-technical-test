@@ -3,8 +3,9 @@ import { useRoutes } from 'react-router-dom';
 import { CharactersPage } from '../views/CharactersPage/CharactersPage';
 import MainLayout from '../components/layout/MainLayout/MainLayout';
 import { FavoritesPage } from '../views/FavoritesPage/FavoritesPage';
-import { ROUTES } from './routes';
 import { CharactersDetailsPage } from '../views/CharacterDetailPage/CharacterDetailPage';
+import NotFoundPage from '../views/NotFoundPage/NotFoundPage';
+import { ROUTES } from './routes';
 
 const AppRouter = () => {
   const routes = useRoutes([
@@ -26,11 +27,11 @@ const AppRouter = () => {
       element: <MainLayout />,
       children: [{ path: '/favorites', element: <FavoritesPage /> }],
     },
-    //   {
-    //     path: '*',
-    //     element: <BlankLayout />,
-    //     children: [{ path: '*', element: <Error /> }]
-    //   },
+    {
+      path: '*',
+      element: <MainLayout />,
+      children: [{ path: '*', element: <NotFoundPage /> }],
+    },
   ]);
 
   return routes;

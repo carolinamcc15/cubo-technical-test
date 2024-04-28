@@ -36,7 +36,7 @@ export const SearchBar = ({ onSearch, placeholder = 'Search' }: PropTypes) => {
       <input
         type='text'
         placeholder={placeholder}
-        className='block w-full border border-gray-300 rounded-md py-2 pl-10 pr-4 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 placeholder:text-gray-400'
+        className='block w-full border border-gray-300 rounded-md py-2 pl-10 pr-4 focus:outline-none focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50 transition duration-200 placeholder:text-gray-400'
         value={searchTerm}
         onChange={handleInputChange}
       />
