@@ -46,10 +46,10 @@ export const CharactersDetailsPage = () => {
         <div className='relative flex  flex-wrap gap-10'>
           <img
             src={characterImage}
-            className='absolute left-1/2 transform -translate-x-1/2 -translate-y-10 md:-translate-y-16 w-32 h-32 md:w-40 md:h-40 rounded-full shadow-lg object-cover'
+            className='absolute left-1/2 transform -translate-x-1/2 -translate-y-10 md:-translate-y-16 w-32 h-32 md:w-36 md:h-36 rounded-full shadow-lg object-cover'
             alt='Character gender representation'
           />
-          <div className='w-full flex flex-col items-center justify-center mt-28 border-b-[1px] border-white pb-4'>
+          <div className='w-full flex flex-col items-center justify-center mt-24 border-b-[1px] border-white pb-4'>
             <div className='flex gap-4 items-center justify-center'>
               <h1 className='page-title mb-3 text-center font-title'>{character.name} </h1>
               <FavoriteButton character={character} />
