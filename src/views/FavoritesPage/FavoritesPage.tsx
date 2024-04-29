@@ -54,7 +54,7 @@ export const FavoritesPage = () => {
   return (
     <div className='bg-gray-50'>
       <PageHeader title='My favorites' total={favorites.length} />
-      <main className='p-4 md:p-6 lg:p-10 lg:pt-5 max-w-[1400px] m-auto'>
+      <main className='p-4 md:p-6 lg:p-10 lg:pt-5 max-w-[1400px] m-auto min-h-[60vh]'>
         <CharactersFilters
           handleSearch={handleSearch}
           handleSelectOption={handleSelectGender}

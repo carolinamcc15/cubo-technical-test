@@ -47,7 +47,7 @@ export const CharactersPage = () => {
     toast.error('ERROR: Could not load characters');
     return <ErrorMessage />;
   }
-
+  
   return (
     <div className='bg-gray-50'>
       <PageHeader title='Characters' total={data?.meta.totalCount} />
@@ -67,7 +67,7 @@ export const CharactersPage = () => {
           previousLabel={<ChevronLeftIcon className='w-5' />}
           nextLabel={<ChevronRightIcon className='w-5' />}
           breakLabel={'...'}
-          pageCount={pageCount}
+          pageCount={pageCount || 0}
           marginPagesDisplayed={2}
           pageRangeDisplayed={3}
           onPageChange={handlePageClick}

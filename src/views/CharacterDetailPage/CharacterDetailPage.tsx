@@ -43,7 +43,7 @@ export const CharactersDetailsPage = () => {
 
   return (
     <div
-      className='bg-primary-dark min-h-[95vh] flex flex-col justify-center items-center bg-cover bg-center p-8 pt-20 sm:pt-24 '
+      className='bg-primary-dark min-h-[95vh] flex flex-col justify-center items-center bg-cover bg-center p-8 pt-20 sm:pt-24 pb-16'
       style={{ backgroundImage: `url(${animatedBg})` }}
     >
       <main className='flex flex-col gap-8 backdrop-blur-sm isolate bg-white/70 ring-1 ring-black/5 shadow-lg p-4 md:p-6 lg:p-10 pt-0 rounded-md w-full sm:w-auto lg:min-w-[700px] max-w-[1200px] m-auto'>

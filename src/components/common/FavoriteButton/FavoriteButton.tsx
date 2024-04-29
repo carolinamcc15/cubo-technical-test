@@ -50,7 +50,7 @@ export const FavoriteButton = ({ character }: PropTypes) => {
         )}
       </button>
 
-      <Tooltip id='favs-tooltip' style={{ opacity: '0.8' }} />
+      <Tooltip id='favs-tooltip' opacity={0.8}/>
     </>
   );
 };
