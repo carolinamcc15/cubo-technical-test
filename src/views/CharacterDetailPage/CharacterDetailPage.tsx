@@ -16,6 +16,7 @@ import useGenderImage from '../../hooks/useGenderImage/useGenderImage';
 import animatedBg from '../../assets/svg/animated-squares-dark.svg';
 import usePageTitle from '../../hooks/usePageTitle/usePageTitle';
 import CharactersService from '../../services/characters';
+import { DataSection } from './DataSection/DataSection';
 
 export const CharactersDetailsPage = () => {
   const charactersService = new CharactersService();
@@ -64,59 +65,35 @@ export const CharactersDetailsPage = () => {
 
         <div className='flex flex-col gap-4'>
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
-            <section className='flex flex-col gap-3 bg-white bg-opacity-50 p-5 rounded-md shadow-lg border-[1px] border-primary-light'>
-              <h3 className='flex items-center font-semibold text-primary-dark gap-2'>
-                <StarIcon className='w-5' /> First appearance
-              </h3>
-              <p className='ml-3'>{character.firstAppearance || 'None'}</p>
-            </section>
-            <section className='flex flex-col gap-3 bg-white bg-opacity-50 p-5 rounded-md shadow-lg border-[1px] border-primary-light'>
-              <h3 className='flex items-center font-semibold  text-primary-dark gap-2'>
-                <FilmIcon className='w-5' /> Last appearance
-              </h3>
-              <p className='ml-3'>{character.lastAppearance || 'None'}</p>
-            </section>
-            <section className='flex flex-col gap-3 bg-white bg-opacity-50 p-5 rounded-md shadow-lg border-[1px] border-primary-light'>
-              <h3 className='flex items-center font-semibold  text-primary-dark gap-2'>
-                <HeartIcon className='w-5' /> Marital
-              </h3>
-              <p className='ml-3'>{character.marital || 'No'}</p>
-            </section>
+            <DataSection
+              icon={<StarIcon className='w-5' />}
+              title='First appearance'
+              textValue={character.firstAppearance || 'None'}
+            />
+            <DataSection
+              icon={<FilmIcon className='w-5' />}
+              title='Last appearance'
+              textValue={character.lastAppearance || 'None'}
+            />
+            <DataSection
+              icon={<HeartIcon className='w-5' />}
+              title='Marital'
+              textValue={character.marital || 'No'}
+            />
           </div>
-
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-            <section className='flex flex-col gap-3 bg-white bg-opacity-50 p-5 rounded-md shadow-lg border-[1px] border-primary-light'>
-              <h3 className='flex items-center font-semibold  text-primary-dark gap-2'>
-                <BuildingLibraryIcon className='w-6' /> Workplaces
-              </h3>
-              <ul className='flex flex-col gap-2'>
-                {character.workplace.length > 0 ? (
-                  character.workplace.map((workplace: string) => (
-                    <li key={workplace} className='ml-3'>
-                      <span className=' text-primary-light mr-0.5'>•</span> {workplace}
-                    </li>
-                  ))
-                ) : (
-                  <li className='ml-3 text-gray-500'>No workplaces found</li>
-                )}
-              </ul>
-            </section>
-            <section className='flex flex-col gap-3 bg-white bg-opacity-50 p-5 rounded-md shadow-lg border-[1px] border-primary-light'>
-              <h3 className='flex items-center font-semibold  text-primary-dark gap-2'>
-                <BriefcaseIcon className='w-6' /> Jobs
-              </h3>
-              <ul className='flex flex-col gap-2'>
-                {character.job.length > 0 ? (
-                  character.job.map((job: string) => (
-                    <li key={job} className='ml-3'>
-                      <span className=' text-primary-light mr-0.5'>•</span> {job}
-                    </li>
-                  ))
-                ) : (
-                  <li className='ml-3 text-gray-500'>No jobs found</li>
-                )}
-              </ul>
-            </section>
+            <DataSection
+              icon={<BuildingLibraryIcon className='w-5' />}
+              title='Workplaces'
+              listValues={character.workplace}
+              emptyListMessage='No workplaces found'
+            />
+            <DataSection
+              icon={<BriefcaseIcon className='w-5' />}
+              title='Jobs'
+              listValues={character.job}
+              emptyListMessage='No jobs found'
+            />
           </div>
         </div>
       </main>
