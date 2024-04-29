@@ -1,9 +1,11 @@
+import { SyntheticEvent } from 'react';
 import { HeartIcon as HeartIconFilled } from '@heroicons/react/24/solid';
 import { HeartIcon } from '@heroicons/react/24/outline';
-import toast from 'react-hot-toast';
 import { Tooltip } from 'react-tooltip';
+import toast from 'react-hot-toast';
 
 import { useFavoritesContext } from '../../../context/FavoritesContext/FavoritesContext';
+import { ICharacter } from '../../../interfaces/api/ICharacter';
 
 export const FavoriteButton = ({ character }: PropTypes) => {
   const { favorites, addFavorite, removeFavorite } = useFavoritesContext();
@@ -48,7 +50,7 @@ export const FavoriteButton = ({ character }: PropTypes) => {
         )}
       </button>
 
-      <Tooltip id='favs-tooltip' style={{ opacity: '0.8' }} />
+      <Tooltip id='favs-tooltip' opacity={0.8}/>
     </>
   );
 };

@@ -1,12 +1,12 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, ReactElement } from 'react';
 import { ICharacter } from '../../interfaces/api/ICharacter';
 
-const FavoritesContext = createContext([]);
+const FavoritesContext = createContext({} as FavoritesContextValues);
 
-export const useFavoritesContext = () => useContext(FavoritesContext);
+export const useFavoritesContext = () => useContext<FavoritesContextValues>(FavoritesContext);
 
-export const FavoritesProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState<ICharacter[]>([]);
+export const FavoritesProvider = ({ children }: PropTypes) => {
+  const [favorites, setFavorites] = useState<ICharacter[]>([] as ICharacter[]);
 
   const addFavorite = (character: ICharacter) => {
     const updatedFavs = [...favorites, character];
@@ -31,4 +31,14 @@ export const FavoritesProvider = ({ children }) => {
       {children}
     </FavoritesContext.Provider>
   );
+};
+
+type PropTypes = {
+  children: ReactElement;
+};
+
+type FavoritesContextValues = {
+  favorites: ICharacter[];
+  addFavorite: (character: ICharacter) => void;
+  removeFavorite: (characterId: number) => void;
 };

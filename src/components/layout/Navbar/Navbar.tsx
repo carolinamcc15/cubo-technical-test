@@ -14,7 +14,7 @@ export const Navbar = () => {
         <div className='block' >
           <ul className='font-medium flex md:p-0 '>
             {navbarLinks.map((link: ILinkElement) => (
-              <NavbarLink linkElement={link} />
+              <NavbarLink key={link.route} linkElement={link} />
             ))}
           </ul>
         </div>

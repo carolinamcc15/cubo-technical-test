@@ -1,9 +1,9 @@
 import { useRoutes } from 'react-router-dom';
 
-import { CharactersPage } from '../views/CharactersPage/CharactersPage';
-import MainLayout from '../components/layout/MainLayout/MainLayout';
-import { FavoritesPage } from '../views/FavoritesPage/FavoritesPage';
 import { CharactersDetailsPage } from '../views/CharacterDetailPage/CharacterDetailPage';
+import { CharactersPage } from '../views/CharactersPage/CharactersPage';
+import { FavoritesPage } from '../views/FavoritesPage/FavoritesPage';
+import MainLayout from '../components/layout/MainLayout/MainLayout';
 import NotFoundPage from '../views/NotFoundPage/NotFoundPage';
 import { ROUTES } from './routes';
 
