@@ -7,7 +7,7 @@ const CHARACTERS_API_BASE_URL = 'https://theofficeapi.dev/api';
 
 class CharactersService {
   async fetchCharacters(queryParams: ICharacterParams = {}) {
-    const params = createParamsString(queryParams);
+    const params = createParamsString(queryParams as Record<string, unknown>);
 
     const response = await axios.get(`${CHARACTERS_API_BASE_URL}/characters${params}`);
     console.log(response);
