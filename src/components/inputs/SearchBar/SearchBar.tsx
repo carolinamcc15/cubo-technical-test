@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { debounce } from 'lodash';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { XMarkIcon } from '@heroicons/react/24/solid';
@@ -6,15 +7,9 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 export const SearchBar = ({ onSearch, placeholder = 'Search' }: PropTypes) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const debounce = (func: unknown, delay: number) => {
-    let timeoutId: number;
-    return (...args: unknown[]) => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        func(...args);
-      }, delay);
-    };
-  };
+  const debouncedSearch = debounce((term: string) => {
+    onSearch(term);
+  }, 300);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const term = event.target.value;
@@ -26,10 +21,6 @@ export const SearchBar = ({ onSearch, placeholder = 'Search' }: PropTypes) => {
     setSearchTerm('');
     debouncedSearch('');
   };
-
-  const debouncedSearch = debounce((term: string) => {
-    onSearch(term);
-  }, 300);
 
   return (
     <div className='relative'>

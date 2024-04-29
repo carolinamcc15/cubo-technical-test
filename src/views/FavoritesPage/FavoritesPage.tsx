@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { CharacterCard } from '../../components/cards/CharacterCard/CharacterCard';
 import { CharactersFilters } from '../../components/common/CharactersFilters/CharactersFilters';
@@ -7,7 +8,7 @@ import { useFavoritesContext } from '../../context/FavoritesContext/FavoritesCon
 import { PageHeader } from '../../components/layout/PageHeader/PageHeader';
 import { ICharacter } from '../../interfaces/api/ICharacter';
 import { Button } from '../../components/buttons/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { IOption } from '../../interfaces/IOption';
 import { ROUTES } from '../../router/routes';
 
 export const FavoritesPage = () => {
@@ -15,8 +16,8 @@ export const FavoritesPage = () => {
 
   const { favorites } = useFavoritesContext();
   const [searchTerm, setSearchTerm] = useState('');
-  const [genderValue, setGenderValue] = useState(null);
-  const [filtered, setFiltered] = useState([]);
+  const [genderValue, setGenderValue] = useState<IOption | null>(null);
+  const [filtered, setFiltered] = useState<ICharacter[]>([]);
 
   const filtersActive = searchTerm || genderValue;
   const listToDisplay = filtersActive ? filtered : favorites;
@@ -24,6 +25,10 @@ export const FavoritesPage = () => {
   const handleSearch = (term: string) => {
     setSearchTerm(term);
   };
+
+  const handleSelectGender = (newValue: IOption | null) => {
+    setGenderValue(newValue)
+  }
 
   const filterResults = () => {
     if (filtersActive) {
@@ -42,11 +47,6 @@ export const FavoritesPage = () => {
     navigate(ROUTES.CHARACTERS);
   };
 
-  const resetFilters = () => {
-    setSearchTerm('');
-    setGenderValue(null);
-  };
-
   useEffect(() => {
     filterResults();
   }, [searchTerm, genderValue]);
@@ -54,11 +54,10 @@ export const FavoritesPage = () => {
   return (
     <div className='bg-gray-50'>
       <PageHeader title='My favorites' total={favorites.length} />
-      <main className='p-4 md:p-6 lg:p-10 lg:pt-5 max-w-[1400px] m-auto'>
+      <main className='p-4 md:p-6 lg:p-10 lg:pt-5 max-w-[1400px] m-auto min-h-[60vh]'>
         <CharactersFilters
           handleSearch={handleSearch}
-          handleSelectOption={setGenderValue}
-          resetFilters={resetFilters}
+          handleSelectOption={handleSelectGender}
         />
 
         {listToDisplay.length > 0 ? (
